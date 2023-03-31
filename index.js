@@ -49,6 +49,7 @@ app.use(passport.session());
 
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
+app.use("/student", require("./routes/student"));
 
 
 app.listen(port, () => {console.log(`Example app listening at http://localhost:${port}`);});

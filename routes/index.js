@@ -16,9 +16,9 @@ router.get('/login', function(req, res) {
     res.render('Login', { title: 'Login',layout:'base2' });
   });
 
-  router.get('/dashboard', isAuthenticated, (req, res) => {
+  router.get('/add_student', isAuthenticated, (req, res) => {
     const data = req.user;
-    res.render('Dashboard', { title: 'Dashboard', layout: 'base1',data });
+    res.render('Add Student', { title: 'Add Student', layout: 'base1',data });
   });
   
   
