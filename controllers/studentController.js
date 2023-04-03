@@ -42,3 +42,22 @@ exports.addStudent = async (req, res) => {
     }
 }
 
+
+// Controller function for rendering List of Students page
+module.exports.studentList = async function(req, res){
+    const data = req.user;
+    try{
+        let students = await Student.find({}).lean();
+        return res.render('ListofStudents', {
+            title: 'List of Students',
+            students: students,
+            data
+        });
+    }
+    catch(err){
+        console.log('Error in fetching students from db: ', err);
+        return res.redirect('back');
+    }
+}
+
+

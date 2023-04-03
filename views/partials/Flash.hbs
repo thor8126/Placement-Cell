@@ -34,6 +34,7 @@
   }
 
   .flash-body {
+    z-index: 999;
     position:
       fixed;
     right: -350px;
@@ -61,7 +62,7 @@
   }
 
   h4 {
-    font-size: clamp(0.8rem, 1.5vw, 0.8rem);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     color: black;
     cursor: pointer;
   }
@@ -98,7 +99,7 @@
 
 <div class="flash-body">
   <i class="fas fa-check-circle"></i>
-  <h4>Registered successfully !</h4>
+  <h4>{{flash.success}}</h4>
   <button class="close-btn"><i class="fas fa-times"></i></button>
   <div class="progress">
     <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
@@ -108,8 +109,8 @@
 
 <script>
   // on hover stop animation and on mouse leave start animation const flashBody
-  = document.querySelector('.flash-body'); const progress =
-    document.querySelector('.progress-bar');
+  const flashBody = document.querySelector('.flash-body');
+  const progress = document.querySelector('.progress-bar');
   flashBody.addEventListener('mouseenter', () => {
     flashBody.style.animationPlayState = 'paused';
     progress.style.animationPlayState = 'paused';
@@ -121,7 +122,7 @@
   closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     flashBody.style.animation =
-    'slideright 0.5s ease-in-out forwards';
+      'slideright 0.5s ease-in-out forwards';
   });
 
 </script>

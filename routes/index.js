@@ -19,12 +19,10 @@ router.get('/login', function(req, res) {
     res.render('Login', { flash: req.flash(),title: 'Login',layout:'base2' });
   });
 
-  router.get('/add_student', isAuthenticated, (req, res) => {
-    const data = req.user;
-    res.render('Add Student', {flash: req.flash(), title: 'Add Student', layout: 'base1',data });
-  });
-  
-  
+router.get('/add_student', isAuthenticated, (req, res) => {
+  const data = req.user;
+  res.render('Add Student', {flash: req.flash(), title: 'Add Student', layout: 'base1',data });
+});
 
 
 module.exports = router;

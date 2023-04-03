@@ -19,6 +19,9 @@ router.get('/', studentController.getAllStudents);
 
 router.post('/add-student',validate, studentController.addStudent);
 
+router.get('/students', studentController.studentList);
+
+
 
 
 
