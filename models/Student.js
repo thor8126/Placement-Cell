@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
     studentId: {
         type: String,
-        required: true, 
+        required: true,
         unique: true
     },
     studentName: {
@@ -19,6 +19,7 @@ const studentSchema = new mongoose.Schema({
     },
     studentStatus: {
         type: String,
+        enum: ['Placed', 'Not_Placed'],
         required: true
     },
     dsaFinalScore: {
@@ -34,16 +35,14 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     interviewDate: {
-        type: Date,
-        required: true
+        type: Date
     },
     interviewCompany: {
-        type: String,
-        required: true
+        type: String
     },
     interviewStudentResult: {
         type: String,
-        required: true
+        enum: ['PASS', 'FAIL', 'On Hold', 'Did not Attempt']
     }
 });
 

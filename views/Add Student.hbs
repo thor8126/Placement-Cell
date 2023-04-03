@@ -1,69 +1,61 @@
-
 <div>
     <div class="container addbox"
         style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 8px 0px #888888;">
         <form action="/student/add-student" method="POST">
-            <center><h1>Add Student</h1></center>
+            <center>
+                <h1>Add Student</h1>
+            </center>
+
             <div class="margin-bottom">
                 <div class="row">
-                    
-                    <div class="col-12" style="width: 100%;"> 
+
+                    <div class="col-6">
                         <div class="box">
-                            <input type="text" id="studentName" class="input-animated" placeholder=" " />
+                            <input type="text" id="studentId" name="studentId" class="input-animated" placeholder=" " />
+                            <label for="studentId" class="input-label">Student Id</label>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="margin-bottom">
+                <div class="row">
+
+                    <div class="col-6">
+                        <div class="box">
+                            <input type="text" id="studentName" name="studentName" class="input-animated" placeholder=" " />
                             <label for="studentName" class="input-label">Name</label>
                         </div>
                     </div>
-                </div>
-            </div>
-
-             <div class="margin-bottom">
-                <div class="row">
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="studentCollege" class="input-animated" placeholder=" " />
+                            <input type="text" id="studentCollege" name="studentCollege" class="input-animated" placeholder=" " />
                             <label for="studentCollege" class="input-label">Current College</label>
                         </div>
                     </div>
+                </div>
+            </div>
+
+
+            <div class="margin-bottom">
+                <div class="row">
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="studentStatus" class="input-animated" placeholder=" " />
+                            {{!-- <input type="text" id="studentStatus" name="studentStatus" class="input-animated" placeholder=" " /> --}}
+                            <select style="font-size: 1rem;" name="studentStatus" id="studentStatus" class="input-animated">
+                                <option style="font-size: 1rem;" value="Placed">Placed</option>
+                                <option style="font-size: 1rem;" value="Not_Placed">Not_Placed</option>
+                            </select>
                             <label for="studentStatus" class="input-label">Status</label>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="margin-bottom">
-                <div class="row">
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="dsaFinalScore" class="input-animated" placeholder=" " />
+                            <input type="text" id="dsaFinalScore" name="dsaFinalScore" class="input-animated" placeholder=" " />
                             <label for="dsaFinalScore" class="input-label">DSA Final Score</label>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="box">
-                            <input type="text" id="webdFinalScore" class="input-animated" placeholder=" " />
-                            <label for="webdFinalScore" class="input-label">WebD Final Score</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-           <div class="margin-bottom">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="box">
-                            <input type="text" id="reactFinalScore" class="input-animated" placeholder=" " />
-                            <label for="reactFinalScore" class="input-label">React Final Score</label>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="box">
-                            <input type="date" id="interviewDate" class="input-animated" placeholder=" " />
-                            <label for="interviewDate" class="input-label">Interview Date</label>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -71,18 +63,20 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="interviewCompany" class="input-animated" placeholder=" " />
-                            <label for="interviewCompany" class="input-label">Interview Company</label>
+                            <input type="text" id="webdFinalScore" name="webdFinalScore" class="input-animated" placeholder=" " />
+                            <label for="webdFinalScore" class="input-label">WebD Final Score</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="interviewStudentResult" class="input-animated" placeholder=" " />
-                            <label for="interviewStudentResult" class="input-label">Interview Result</label>
+                            <input type="text" id="reactFinalScore" name="reactFinalScore" class="input-animated" placeholder=" " />
+                            <label for="reactFinalScore" class="input-label">React Final Score</label>
                         </div>
                     </div>
+     
                 </div>
             </div>
+           
 
             <center>
                 <button type="submit" class="btn btn-primary">Submit</button>

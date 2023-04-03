@@ -1,5 +1,5 @@
 const Student = require('../models/Student');
-
+const flash = require('connect-flash');
 
 exports.getAllStudents = async (req, res) => {
     try {
@@ -12,12 +12,13 @@ exports.getAllStudents = async (req, res) => {
 
 
 exports.addStudent = async (req, res) => {
-    const { studentId, studentName, studentCollege, studentStatus, dsaFinalScore, webdFinalScore, reactFinalScore, interviewDate, interviewCompany, interviewStudentResult } = req.body;
+    const {studentId, studentName, studentCollege, studentStatus, dsaFinalScore, webdFinalScore, reactFinalScore} = req.body;
     try {
         await Student.findOne({ studentId })
         .then(student => {
             if (student) {
-                return res.status(400).json({ msg: 'Student already exists' });
+                req.flash('error', 'Student already exists');
+                res.redirect('/add_student');
             }
             const newStudent = new Student({
                 studentId,
@@ -27,13 +28,11 @@ exports.addStudent = async (req, res) => {
                 dsaFinalScore,
                 webdFinalScore,
                 reactFinalScore,
-                interviewDate,
-                interviewCompany,
-                interviewStudentResult
             });
             newStudent.save()
             .then(student => {
-                res.json(student);
+                req.flash('success', 'Student added successfully');
+                res.redirect('/add_student')
             })
             .catch(err => console.log(err));
         }

@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    {{#if flash.success }}
+        {{>Flash}}
+    {{/if}}
+
+    {{#if flash.error }}
+        {{>Flash2}}
+    {{/if}}
     
     <main >
         <div class="container">

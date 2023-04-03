@@ -2,6 +2,7 @@ const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User'); // import user model
+const flash = require('connect-flash');
 
   // Local Strategy
   passport.use(
@@ -10,15 +11,18 @@ const User = require('../models/User'); // import user model
         usernameField: "email",
         passwordField: "password",
       },
-      function (email, password, done) {
+      function ( email, password, done) {
         const user = User.findOne({ email: email }).then((user) => {
           if (!user) {
+            console.log('User not found')
             return done(null, false);
           }
           bcrypt.compare(password, user.password).then((isMatch) => {
             if (isMatch) {
+              console.log('User found')
               return done(null, user);
             } else {
+              console.log('Incorrect password')
               return done(null,false);
             }
           });

@@ -1,0 +1,61 @@
+<style>
+  :root {
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --flash-height: 50px;
+    --flash-width: 300px;
+    --flash-duration: 4s;
+  }
+
+  @keyframes slideleft{
+    0%{
+        right: -300px;
+    }
+    100%{
+        right: 10px;
+    }
+  }
+
+  @keyframes slideright{
+    0%{
+        right: 10px;
+    }
+    100%{
+        right: -300px;
+    }
+    }
+
+  .flash {
+    position: fixed;
+    top: 10px;
+    right: -300px;
+    z-index: 999;
+    width: var(--flash-width);
+    height: var(--flash-height);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px #504f4f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color-success);
+    color: black;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease-in-out;
+    animation: slideleft 0.3s forwards ease-in-out, slideright 0.3s 4s forwards ease-in-out;
+  }
+
+  .flash.bg-success {
+    background-color: var(--color-success);
+  }
+  
+</style>
+
+<div class="flash bg-success">
+  {{flash.success}}
+</div>
