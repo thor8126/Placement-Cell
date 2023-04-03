@@ -1,61 +1,127 @@
 <style>
-  :root {
-    --color-success: #28a745;
-    --color-danger: #dc3545;
-    --color-warning: #ffc107;
-    --flash-height: 50px;
-    --flash-width: 300px;
-    --flash-duration: 4s;
-  }
-
-  @keyframes slideleft{
-    0%{
-        right: -300px;
+  @keyframes slideleft {
+    from {
+      right: -350px;
     }
-    100%{
-        right: 10px;
+
+    to {
+      right: 10px;
     }
   }
 
-  @keyframes slideright{
-    0%{
-        right: 10px;
-    }
-    100%{
-        right: -300px;
-    }
+  @keyframes slideright {
+    from {
+      right: 10px;
     }
 
-  .flash {
-    position: fixed;
+    to {
+      right: -350px;
+    }
+  }
+
+  @keyframes progress {
+    from {
+      width: 100%;
+    }
+
+    to {
+      width: 0%;
+    }
+  }
+
+  .slideRight {
+    animation: slideright 0.5s ease-in-out 3s forwards;
+  }
+
+  .flash-body {
+    position:
+      fixed;
+    right: -350px;
     top: 10px;
-    right: -300px;
-    z-index: 999;
-    width: var(--flash-width);
-    height: var(--flash-height);
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px 0px #504f4f;
+    width: 280px;
+    height: 70px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: var(--color-success);
-    color: black;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease-in-out;
-    animation: slideleft 0.3s forwards ease-in-out, slideright 0.3s 4s forwards ease-in-out;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+    font-family:
+      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    animation: slideleft 0.5s ease-in-out forwards, slideright 0.5s ease-in-out 3s forwards;
   }
 
-  .flash.bg-success {
-    background-color: var(--color-success);
+  .fa-check-circle {
+    font-size: 1.4rem;
+    color: green;
+    margin-right: 0.5rem;
   }
-  
+
+  h4 {
+    font-size: clamp(0.8rem, 1.5vw, 0.8rem);
+    color: black;
+    cursor: pointer;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color:
+      transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #ccc;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background-color:
+      green;
+    transition: all 0.5s ease-in-out;
+    animation: progress 3s linear forwards;
+  }
 </style>
 
-<div class="flash bg-success">
-  {{flash.success}}
+<div class="flash-body">
+  <i class="fas fa-check-circle"></i>
+  <h4>Registered successfully !</h4>
+  <button class="close-btn"><i class="fas fa-times"></i></button>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+      aria-valuemax="100"></div>
+  </div>
 </div>
+
+<script>
+  // on hover stop animation and on mouse leave start animation const flashBody
+  = document.querySelector('.flash-body'); const progress =
+    document.querySelector('.progress-bar');
+  flashBody.addEventListener('mouseenter', () => {
+    flashBody.style.animationPlayState = 'paused';
+    progress.style.animationPlayState = 'paused';
+  });
+  flashBody.addEventListener('mouseleave', () => {
+    flashBody.style.animationPlayState = 'running';
+    progress.style.animationPlayState = 'running';
+  }); // close button const
+  closeBtn = document.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    flashBody.style.animation =
+    'slideright 0.5s ease-in-out forwards';
+  });
+
+</script>
