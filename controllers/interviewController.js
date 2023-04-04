@@ -30,6 +30,38 @@ module.exports.listInterviews = async function(req, res){
     }
     catch(err){
         console.log('Error in fetching interviews from db: ', err);
-        return res.redirect('back');
+        return res.redirect('/');
+    }
+}
+
+module.exports.assignPage = async function(req, res){
+    const data = req.user;
+    try{
+        let interviews = await Interview.find({}).populate('students.studentId').lean();
+        return res.render('AssignPage', {
+            title: 'Assign Page',
+            interviews: interviews,
+            data
+        });
+    }
+    catch(err){
+        console.log('Error in fetching interviews from db: ', err);
+        return res.redirect('/');
+    }
+} 
+
+module.exports.assignStudent = async function(req, res){
+    const data = req.user;
+    try{
+        let interviews = await Interview.find({}).populate('students.studentId').lean();
+        return res.render('AssignPage', {
+            title: 'Assign Page',
+            interviews: interviews,
+            data
+        });
+    }
+    catch(err){
+        console.log('Error in fetching interviews from db: ', err);
+        return res.redirect('/');
     }
 }
