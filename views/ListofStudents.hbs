@@ -12,7 +12,7 @@
 </style>
 
 <div class="container">
-  <table id="interviewTable" class="table table-dark table-hover" style="width:100%">
+  <table id="interviewTable" class="table table-success table-striped" style="width:100%">
     <thead>
       <tr>
         <th>Student ID</th>
@@ -36,7 +36,7 @@
           <td>{{this.webdFinalScore}}</td>
           <td>{{this.reactFinalScore}}</td>
           <td>
-            <form action="/assign" method="POST">
+            <form action="/interviews/assign" method="POST">
               <input type="hidden" name="studentId" value="{{this.studentId}}">
               <button>Assign Interview</button>
             </form>

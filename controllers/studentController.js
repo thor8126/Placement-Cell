@@ -1,5 +1,6 @@
-const Student = require('../models/Student');
 const flash = require('connect-flash');
+const Interview = require('../models/interview');
+const Student = require('../models/student');
 
 exports.getAllStudents = async (req, res) => {
     try {
@@ -51,7 +52,8 @@ module.exports.studentList = async function(req, res){
         return res.render('ListofStudents', {
             title: 'List of Students',
             students: students,
-            data
+            data,
+            flash: req.flash()
         });
     }
     catch(err){

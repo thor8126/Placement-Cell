@@ -6,26 +6,23 @@
     style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 8px 0px #888888;">
     <form action="/interviews/assignStudent" method="POST">
       <center>
-        <h1>Assign Interview to {{name}}</h1>
+        <h1>Assign Interview to {{student.studentName }}</h1>
       </center>
+      <input type="hidden" name="studentId" value="{{student.studentId}}">
 
       <div class="margin-bottom">
         <div class="row">
-
-          <div class="col-6">
+          <div class="col-12">
             <div class="box">
-              <input type="text" id="company" name="company" class="input-animated" placeholder=" " />
-              <label for="company" class="input-label">Company</label>
+              <select name="interviewId" class="input" required>
+                <option value="" disabled selected>Select Interview</option>
+                {{#each interviews}}
+                  <option value="{{_id}}">{{company}}</option>
+                {{/each}}
+              </select>
+              <label for="company" class="input-label"></label>
             </div>
           </div>
-
-          <div class="col-6">
-            <div class="box">
-              <input type="date" id="date" name="date" class="input-animated" placeholder=" " />
-              <label for="date" class="input-label">Date</label>
-            </div>
-          </div>
-
         </div>
       </div>
 

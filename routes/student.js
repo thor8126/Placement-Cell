@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const studentController = require('../controllers/studentController.js');
 const { check, validationResult } = require('express-validator');
+const Interview = require('../models/interview');
+const Student = require('../models/student');
 
 const validate = [
     check('studentId').not().isEmpty().withMessage('Student ID is required'),
