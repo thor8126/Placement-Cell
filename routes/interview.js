@@ -9,5 +9,5 @@ router.get('/listinterviews', interviewController.listInterviews);
 router.post('/assign' , interviewController.assignPage);
 router.post('/assignStudent', interviewController.assignStudent);
 router.get('/interview/:id', interviewController.interviewPage);
-router.post('/interview/save-result', interviewController.saveInterviewResult);
+router.post('/interview/saveResult', interviewController.saveInterviewResult);
 module.exports = router;

@@ -11,7 +11,10 @@
   }
 </style>
 
-
+<div style="display: flex; align-items: center; justify-content: flex-end;">
+  <a class="btn btn-outline-primary" href="/interviews/add-interview">Add New Interview</a>
+</div>
+<br>
 <div class="container">
   <table id="interviewsTable" class="table table-success table-striped" style="width:100%">
     <thead>
@@ -26,13 +29,16 @@
         <tr>
           <td>{{this.company}}</td>
           <td>{{this.date}}</td>
-          <td><a href="/interviews/interview/{{this._id}}">View Students</a></td>
+          <td><a class="btn btn-primary" href="/interviews/interview/{{this._id}}">View Students/Results</a></td>
         </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
-
+<br>
+<p style="text-align: center; font-size: 15px; font-weight: bold;"> 
+  * Please, assign an interview to the students through the "Assign Interview" button on the "Students page".
+   </p>
 <script>
   $(document).ready(function() {
     $('#interviewsTable').DataTable({

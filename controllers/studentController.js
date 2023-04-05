@@ -34,7 +34,7 @@ exports.addStudent = async (req, res) => {
             newStudent.save()
             .then(student => {
                 req.flash('success', 'Student added successfully');
-                res.redirect('/add_student')
+                res.redirect('/student/students')
             })
             .catch(err => console.log(err));
         }

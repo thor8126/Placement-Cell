@@ -12,15 +12,15 @@
       <tr>
         <td>{{this.studentName}}</td>
         <td>
-          <form method="post" action="/interviews/interview/save-result">
+          <form method="post" action="/interviews/interview/saveResult">
             <input type="hidden" name="studentId" value="{{this.studentId}}">
-            <input type="hidden" name="interviewId" value="{{this._id}}">
+            <input type="hidden" name="interviewId" value="{{interview._id}}">
             <div class="input-group">
               <select class="form-select" aria-label="Result Status" id="{{this.studentId}}-status" name="resultStatus">
-                <option value="PASS" {{#if this.resultStatus.PASS}} selected {{/if}}>PASS</option>
-                <option value="FAIL" {{#if this.resultStatus.FAIL}} selected {{/if}}>FAIL</option>
-                <option value="OnHold" {{#if this.resultStatus.OnHold}} selected {{/if}}>On Hold</option>
-                <option value="DidnotAttempt" {{#if this.resultStatus.DidnotAttempt}} selected {{/if}}>Didn’t Attempt</option>
+                <option value="PASS" {{#if this.interviewStudentResult.PASS}} selected {{/if}}>PASS</option>
+                <option value="FAIL" {{#if this.interviewStudentResult.FAIL}} selected {{/if}}>FAIL</option>
+                <option value="OnHold" {{#if this.interviewStudentResult.OnHold}} selected {{/if}}>On Hold</option>
+                <option value="DidnotAttempt" {{#if this.interviewStudentResult.DidnotAttempt}} selected {{/if}}>Didn’t Attempt</option>
               </select>
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
@@ -31,3 +31,6 @@
     </tbody>
   </table>
 </div>
+<p style="text-align: center; font-size: 15px; font-weight: bold;"> 
+  * Please, assign an interview to the students through the "Assign Interview" button on the "Students page".
+   </p>

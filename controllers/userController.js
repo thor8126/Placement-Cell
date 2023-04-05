@@ -22,7 +22,7 @@ exports.register = async (req, res) => {
             username,
             email,
             password: passwordHash,
-            role:'user'
+            role:'admin'
         });
         await newUser.save();
         req.flash('success','User created succesfully!')

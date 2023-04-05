@@ -15,7 +15,7 @@ exports.addInterview = async (req, res) => {
   });
   await interview.save();
   req.flash('success', 'Interview added successfully');
-  res.redirect('/interviews/add-interview');
+  res.redirect('/interviews/listinterviews');
 };
 
 
@@ -107,7 +107,7 @@ module.exports.saveInterviewResult = async function(req, res){
         student.interviewStudentResult = resultStatus;
         await student.save();
         req.flash('success', 'Interview result saved successfully!');
-        return res.redirect('/interview/interview/' + interviewId);
+        return res.redirect('/interviews/listinterviews');
     }
     catch(err){
         console.log('Error in saving interview result: ', err);

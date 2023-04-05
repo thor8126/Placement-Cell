@@ -9,8 +9,59 @@
   .dt-buttons {
     margin-bottom: 1rem;
   }
+  
+  #interviewTable {
+    font-size: 16px;
+  }
+  
+  #interviewTable thead th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  #interviewTable tbody td {
+    vertical-align: middle;
+  }
+  
+  #interviewTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #interviewTable tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  #interviewTable_wrapper .dataTables_paginate {
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+  
+  #interviewTable_wrapper .dataTables_info {
+    font-size: 14px;
+  }
+  
+  #interviewTable_wrapper .dataTables_length {
+    font-size: 14px;
+  }
+  
+  #interviewTable_wrapper .dataTables_filter {
+    font-size: 14px;
+  }
+  
+  #interviewTable_wrapper .btn-group button {
+    font-size: 14px;
+  }
+  
+  #interviewTable_wrapper .btn-group button:hover {
+    background-color: #007bff;
+  }
 </style>
 
+<div style="display: flex; align-items: center; justify-content: flex-end;">
+  <a class="btn btn-outline-primary" href="/add_student">Add Students</a>
+</div>
+<br>
 <div class="container">
   <table id="interviewTable" class="table table-success table-striped" style="width:100%">
     <thead>
@@ -22,7 +73,8 @@
         <th>DSA Final Score</th>
         <th>WebD Final Score</th>
         <th>React Final Score</th>
-        <th>+</th>
+        <th>Interview Status</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -35,10 +87,11 @@
           <td>{{this.dsaFinalScore}}</td>
           <td>{{this.webdFinalScore}}</td>
           <td>{{this.reactFinalScore}}</td>
+          <td>{{this.interviewStudentResult}}</td>
           <td>
             <form action="/interviews/assign" method="POST">
               <input type="hidden" name="studentId" value="{{this.studentId}}">
-              <button>Assign Interview</button>
+              <button class="btn btn-primary">Assign Interview</button>
             </form>
           </td>
         </tr>
