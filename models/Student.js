@@ -9,6 +9,11 @@ const studentSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    idType:{
+        type: String,
+        enum: ['Aadhar', 'Pan', 'Passport'],
+        required: true
+    },
     studentName: {
         type: String,
         required: true

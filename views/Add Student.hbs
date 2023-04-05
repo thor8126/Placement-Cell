@@ -1,5 +1,20 @@
     <link rel="stylesheet" href="/css/form.css">
 
+    <style>
+        input::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+    </style>
+
 <div>
     <div class="container addbox"
         style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 8px 0px #888888;">
@@ -15,6 +30,15 @@
                         <div class="box">
                             <input type="text" id="studentId" name="studentId" class="input-animated" placeholder=" " />
                             <label for="studentId" class="input-label">Student Id</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box">
+                            <select style="font-size: 1rem;" name="idType" id="idType" class="input-animated">
+                                <option style="font-size: 1rem;" value="Aadhar">Aadhar</option>
+                                <option style="font-size: 1rem;" value="Pan">Pan</option>
+                                <option style="font-size: 1rem;" value="Passport">Passport</option>
+                            </select>
                         </div>
                     </div>
                     
