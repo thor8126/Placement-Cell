@@ -18,21 +18,15 @@
       <tr>
         <th>Interview Date</th>
         <th>Company</th>
-        {{!-- <th>Students</th> --}}
+        <th></th>
       </tr>
     </thead>
     <tbody>
       {{#each interviews}}
         <tr>
-          <td>{{this.date}}</td>
           <td>{{this.company}}</td>
-          {{!-- <td>
-            <ul>
-              {{#each this.students}}
-                <li>{{this}}</li>
-              {{/each}}
-            </ul>
-          </td> --}}
+          <td>{{this.date}}</td>
+          <td><a href="/interviews/interview/{{this._id}}">View Students</a></td>
         </tr>
       {{/each}}
     </tbody>

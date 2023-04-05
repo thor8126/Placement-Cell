@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Interview Results</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Result Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each students}}
+      <tr>
+        <td>{{this.studentName}}</td>
+        <td>
+          <form method="post" action="/interviews/interview/save-result">
+            <input type="hidden" name="studentId" value="{{this.studentId}}">
+            <input type="hidden" name="interviewId" value="{{this._id}}">
+            <div class="input-group">
+              <select class="form-select" aria-label="Result Status" id="{{this.studentId}}-status" name="resultStatus">
+                <option value="PASS" {{#if this.resultStatus.PASS}} selected {{/if}}>PASS</option>
+                <option value="FAIL" {{#if this.resultStatus.FAIL}} selected {{/if}}>FAIL</option>
+                <option value="OnHold" {{#if this.resultStatus.OnHold}} selected {{/if}}>On Hold</option>
+                <option value="DidnotAttempt" {{#if this.resultStatus.DidnotAttempt}} selected {{/if}}>Didn’t Attempt</option>
+              </select>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

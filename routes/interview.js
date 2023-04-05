@@ -8,5 +8,6 @@ router.post('/add', interviewController.addInterview);
 router.get('/listinterviews', interviewController.listInterviews);
 router.post('/assign' , interviewController.assignPage);
 router.post('/assignStudent', interviewController.assignStudent);
-
+router.get('/interview/:id', interviewController.interviewPage);
+router.post('/interview/save-result', interviewController.saveInterviewResult);
 module.exports = router;

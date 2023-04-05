@@ -13,7 +13,7 @@ exports.getAllStudents = async (req, res) => {
 
 
 exports.addStudent = async (req, res) => {
-    const {studentId, studentName, studentCollege, studentStatus, dsaFinalScore, webdFinalScore, reactFinalScore} = req.body;
+    const {studentId,idType, studentName, studentCollege, studentStatus, dsaFinalScore, webdFinalScore, reactFinalScore} = req.body;
     try {
         await Student.findOne({ studentId })
         .then(student => {
@@ -23,6 +23,7 @@ exports.addStudent = async (req, res) => {
             }
             const newStudent = new Student({
                 studentId,
+                idType,
                 studentName,
                 studentCollege,
                 studentStatus,

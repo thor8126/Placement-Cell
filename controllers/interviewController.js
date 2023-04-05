@@ -76,3 +76,42 @@ module.exports.assignStudent = async function(req, res){
         return res.redirect('/');
     }
 }
+
+module.exports.interviewPage = async function(req, res){
+    try{
+        const data = req.user;
+        const interview = await Interview.findById(req.params.id).populate('students.studentId').lean();
+        const students = await Student.find({ _id: { $in: interview.students } }).lean();
+        return res.render('InterviewPage', {
+            title: 'Interview Page',
+            interview: interview,
+            flash: req.flash(),
+            data,
+            students
+        });
+    }
+    catch(err){
+        console.log('Error in fetching interview from db: ', err);
+        return res.redirect('/');
+    }
+}
+
+
+module.exports.saveInterviewResult = async function(req, res){
+    const studentId = req.body.studentId;
+    const interviewId = req.body.interviewId;
+    const resultStatus = req.body.resultStatus;
+
+    try{
+        const student = await Student.findOne({studentId: studentId});
+        student.interviewStudentResult = resultStatus;
+        await student.save();
+        req.flash('success', 'Interview result saved successfully!');
+        return res.redirect('/interview/interview/' + interviewId);
+    }
+    catch(err){
+        console.log('Error in saving interview result: ', err);
+        req.flash('error', 'Error in saving interview result!');
+        return res.redirect('/');
+    }
+}

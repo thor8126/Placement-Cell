@@ -47,7 +47,8 @@ const studentSchema = new mongoose.Schema({
     },
     interviewStudentResult: {
         type: String,
-        enum: ['PASS', 'FAIL', 'On Hold', 'Did not Attempt']
+        enum: ['PASS', 'FAIL', 'OnHold', 'DidnotAttempt'],
+        default: 'DidnotAttempt'
     }
 });
 
