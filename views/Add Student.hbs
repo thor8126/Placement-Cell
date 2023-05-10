@@ -26,19 +26,22 @@
             <div class="margin-bottom">
                 <div class="row">
 
-                    <div class="col-6">
-                        <div class="box">
-                            <input type="text" id="studentId" name="studentId" class="input-animated" placeholder=" " />
-                            <label for="studentId" class="input-label">Student Id</label>
-                        </div>
-                    </div>
+                   
                     <div class="col-6">
                         <div class="box">
                             <select style="font-size: 1rem;" name="idType" id="idType" class="input-animated">
-                                <option style="font-size: 1rem;" value="Aadhar">Aadhar</option>
+                                <option style="font-size: 1rem;" value="Aadhar" selected>Aadhar</option>
                                 <option style="font-size: 1rem;" value="Pan">Pan</option>
                                 <option style="font-size: 1rem;" value="Passport">Passport</option>
                             </select>
+                            <label for="studentStatus" class="input-label">ID type</label>
+                        </div>
+                    </div>
+
+                     <div class="col-6">
+                        <div class="box">
+                            <input type="text" id="studentId" name="studentId" class="input-animated" placeholder=" " required/>
+                            <label for="studentId" class="input-label">Student Id</label>
                         </div>
                     </div>
                     
@@ -50,13 +53,13 @@
 
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="studentName" name="studentName" class="input-animated" placeholder=" " />
+                            <input type="text" id="studentName" name="studentName" class="input-animated" placeholder=" " required/>
                             <label for="studentName" class="input-label">Name</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="studentCollege" name="studentCollege" class="input-animated" placeholder=" " />
+                            <input type="text" id="studentCollege" name="studentCollege" class="input-animated" placeholder=" " required/>
                             <label for="studentCollege" class="input-label">Current College</label>
                         </div>
                     </div>
@@ -78,7 +81,7 @@
                     </div>
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="dsaFinalScore" name="dsaFinalScore" class="input-animated" placeholder=" " />
+                            <input type="text" id="dsaFinalScore" name="dsaFinalScore" class="input-animated" placeholder=" " required/>
                             <label for="dsaFinalScore" class="input-label">DSA Final Score</label>
                         </div>
                     </div>
@@ -89,13 +92,13 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="webdFinalScore" name="webdFinalScore" class="input-animated" placeholder=" " />
+                            <input type="text" id="webdFinalScore" name="webdFinalScore" class="input-animated" placeholder=" " required/>
                             <label for="webdFinalScore" class="input-label">WebD Final Score</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="box">
-                            <input type="text" id="reactFinalScore" name="reactFinalScore" class="input-animated" placeholder=" " />
+                            <input type="text" id="reactFinalScore" name="reactFinalScore" class="input-animated" placeholder=" " required/>
                             <label for="reactFinalScore" class="input-label">React Final Score</label>
                         </div>
                     </div>
